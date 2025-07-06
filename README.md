@@ -2,13 +2,13 @@
 
 ## Why Create This?
 **Two Reasons:**
-- To create some content that could be shared with wider teams for education purposes - I wanted to build a variety of content to keep it interesting
-- Continue to learn and develop my skills across AI / LLM tooling. I've been using Anthropic's Claude to build Web Infra and Demo Applications for a while now; this was a different challenge
+- To test a concept where I create content that could be shared with wider teams for education purposes - I wanted to build a variety of content to keep it interesting (and challenging)
+- Continue to learn and develop my skills across AI/LLM tooling. I've been using Anthropic's Claude to build Web Infra and demo Applications on AWS/Microsoft for a while now; this was a different challenge
 
 ## Content Accuracy & Learnings
-- There are definitely some minor errors in the content but I was happy to live with those and explain onwards. With more time I would have continued to refine the initial Master Research document to ensure it was 100% accurate (or as close as possible).
+- There are definitely some minor errors in the content but I was happy to live with those and explain onwards. With more time I would have continued to refine the initial Master Research document to ensure it was 100% accurate (or as close as possible)
 - It still took a decent chunk of time to create all this content even with the AI tooling - granted, a LOT less time than if I had done all this manually - I'd guess by at least a factor of 10!
-- We're still nowhere near a stage where things work in one-hit; my Claude Project has 11 separate chats for Research and Quiz cration.
+- We're still nowhere near a stage where things work in one-hit; my Claude Project has 11 separate chats for Research and Quiz cration
 
 ## Approach To Creation
 **Research:**
@@ -32,8 +32,8 @@
 - Opted for Gamma.app which did a great job first time. I also got it to test the versions that Gemini and Claude suggested but preferred the native approach. Interestingly Gamma is a Claude cutomer.
 
 **Video:**
-- I generated the talk track for each slide using Claude Opus 4.0. At first I was going for 15 minutes but this needed to be reduced to under 10 minutes due to cost. The initial draft was good, and only needed minor tweaks.
-- I used Synthesia to create the actual video. I though I could change the Avatar after doing this test run but I'd used up my minutes - it's an expensive tool! Generating vitual me will have to wait to another time.
+- I generated the talk track for each slide using Claude Opus 4.0. At first I was going for 15 minutes but this needed to be reduced to under 10 minutes due to cost. The initial draft was good, and only needed minor tweaks
+- I used Synthesia to create the actual video. I thougt I could change the Avatar after doing this test run but I'd used up my minutes and it's an expensive tool! Generating vitual me will have to wait to another time
 
 **Final Page:**
-- I once again used Claude Sonnet 4.0 to design and create the final page that encompasses all elements. Essentially this was just expanding the quiz page but I kept them separate in the repo.
+- I once again used Claude Sonnet 4.0 to design and create the final page that encompasses all elements; there were some bugs it struggled with so Opus 4.0 was used to complete it. Essentially this element was just expanding the quiz page but I kept them separate in the repo
