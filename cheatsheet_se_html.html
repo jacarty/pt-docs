@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Engineer - Penetration Testing Technical Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .reference {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .reference h2 {
+            color: #666;
+        }
+        sup {
+            font-size: 0.8em;
+            color: #3498db;
+        }
+        .quality-box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        @media print {
+            body {
+                padding: 20px;
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            a {
+                color: #000;
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Sales Engineer - Penetration Testing Technical Guide</h1>
+    
+    <h2><span class="emoji">🔧</span>Technical Fundamentals</h2>
+    
+    <h3>Vulnerability Prevalence</h3>
+    <ul>
+        <li><strong>94%</strong> apps have broken access control (A01:2021)<sup>[1]</sup></li>
+        <li><strong>75%</strong> mobile apps contain vulnerabilities<sup>[2]</sup></li>
+        <li><strong>95%</strong> organizations have API security issues<sup>[3]</sup></li>
+        <li><strong>10-15</strong> exploitable findings from 100-200 scan results<sup>[4]</sup></li>
+    </ul>
+
+    <h3>OWASP Top 10 Quick Reference</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Business Impact</th>
+                <th>Our Solution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Broken Access Control</strong></td>
+                <td>Data breach, privilege escalation</td>
+                <td>IAM, Zero Trust</td>
+            </tr>
+            <tr>
+                <td><strong>Cryptographic Failures</strong></td>
+                <td>Data exposure, compliance fail</td>
+                <td>Encryption, HSM</td>
+            </tr>
+            <tr>
+                <td><strong>Injection</strong></td>
+                <td>Database compromise</td>
+                <td>WAF, Input validation</td>
+            </tr>
+            <tr>
+                <td><strong>Insecure Design</strong></td>
+                <td>Unfixable by implementation</td>
+                <td>Secure SDLC</td>
+            </tr>
+            <tr>
+                <td><strong>Misconfiguration</strong></td>
+                <td>Cloud exposure, breach</td>
+                <td>CSPM, Hardening</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2><span class="emoji">🛠️</span>Testing Methodologies</h2>
+    
+    <p><strong>OWASP WSTG</strong><sup>[5]</sup></p>
+    <ul>
+        <li>PCI DSS 4.0 requirement</li>
+        <li>Application focus</li>
+        <li>Industry standard</li>
+    </ul>
+    
+    <p><strong>NIST SP 800-115</strong><sup>[6,7]</sup></p>
+    <ul>
+        <li>Federal/regulated required</li>
+        <li>4 phases: Plan→Discover→Attack→Report</li>
+        <li>Audit-ready format</li>
+    </ul>
+    
+    <p><strong>PTES</strong><sup>[8]</sup></p>
+    <ul>
+        <li>7 comprehensive phases</li>
+        <li>Professional grade</li>
+        <li>Vendor-agnostic</li>
+    </ul>
+
+    <h2><span class="emoji">🔍</span>Testing Types - Technical Details</h2>
+    
+    <h3>Web Application Testing</h3>
+    <ul>
+        <li><strong>Scope</strong>: OWASP Top 10, business logic, authentication</li>
+        <li><strong>Tools</strong>: Burp Suite (£399/yr), OWASP ZAP (free)</li>
+        <li><strong>Duration</strong>: 7-10 days active testing</li>
+        <li><strong>Output</strong>: 10+ manual findings typical</li>
+    </ul>
+
+    <h3>Mobile Testing</h3>
+    <ul>
+        <li><strong>iOS</strong>: Secure Enclave, sandboxing, sideloading risks<sup>[9]</sup></li>
+        <li><strong>Android</strong>: Fragmentation, 3rd party stores<sup>[10]</sup></li>
+        <li><strong>Tools</strong>: MobSF, Frida, Charles Proxy</li>
+        <li><strong>Focus</strong>: API security, data storage, platform-specific</li>
+    </ul>
+
+    <h3>Network Testing</h3>
+    <ul>
+        <li><strong>External</strong>: Perimeter, exposed services</li>
+        <li><strong>Internal</strong>: Lateral movement, segmentation</li>
+        <li><strong>Tools</strong>: Nmap, Metasploit, Nessus</li>
+        <li><strong>Timing</strong>: 1-2 weeks per environment</li>
+    </ul>
+
+    <h3>API Testing</h3>
+    <ul>
+        <li><strong>OWASP API Top 10</strong>: BOLA, authentication, rate limiting<sup>[11]</sup></li>
+        <li><strong>Tools</strong>: Postman, Burp, custom scripts</li>
+        <li><strong>Issues</strong>: 10x more data exposed than web breaches<sup>[12]</sup></li>
+    </ul>
+
+    <h2><span class="emoji">📊</span>Technical Approach Comparison</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Approach</th>
+                <th>Info Provided</th>
+                <th>Coverage</th>
+                <th>Authenticity</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Black Box</strong></td>
+                <td>None</td>
+                <td>Limited</td>
+                <td>Maximum</td>
+                <td>High</td>
+            </tr>
+            <tr>
+                <td><strong>Gray Box</strong></td>
+                <td>User access</td>
+                <td>Balanced</td>
+                <td>Good</td>
+                <td>Medium</td>
+            </tr>
+            <tr>
+                <td><strong>White Box</strong></td>
+                <td>Everything</td>
+                <td>Maximum</td>
+                <td>Limited</td>
+                <td>Low/scan</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>Key</strong>: 66% prefer Gray Box for balance<sup>[13]</sup></p>
+
+    <h2><span class="emoji">🔬</span>Tool Categories & Leaders</h2>
+    
+    <h3>Commercial (28% organizations use none)<sup>[14]</sup></h3>
+    <ul>
+        <li><strong>Burp Suite Pro</strong>: Web app gold standard</li>
+        <li><strong>Nessus</strong>: 60K+ vuln signatures</li>
+        <li><strong>Metasploit Pro</strong>: 2,300+ exploits</li>
+        <li><strong>Checkmarx/Veracode</strong>: SAST integration</li>
+    </ul>
+
+    <h3>Open Source (72% rely on these)<sup>[14]</sup></h3>
+    <ul>
+        <li><strong>OWASP ZAP</strong>: Free Burp alternative</li>
+        <li><strong>Nmap</strong>: 100% of network tests</li>
+        <li><strong>SQLMap</strong>: Database testing</li>
+        <li><strong>MobSF</strong>: Mobile all-in-one</li>
+    </ul>
+
+    <h3>PTaaS Trends</h3>
+    <ul>
+        <li>Market: £118M→£301B by 2029<sup>[15,16]</sup></li>
+        <li>Benefits: 31% cost reduction, 96% higher ROI<sup>[16]</sup></li>
+        <li>Limits: No business logic, needs manual supplement</li>
+    </ul>
+
+    <h2><span class="emoji">🎯</span>Quality Indicators</h2>
+    
+    <div class="quality-box">
+        <h3>High-Quality Test Markers</h3>
+        <p>✅ Manual validation (not just scan)<br>
+        ✅ Business logic testing<br>
+        ✅ Exploitation evidence (PoC)<br>
+        ✅ CVSS + business context<br>
+        ✅ Detailed remediation steps<br>
+        ✅ Compliance mapping</p>
+    </div>
+
+    <div class="quality-box">
+        <h3>Red Flags</h3>
+        <p>❌ Scanner output only<br>
+        ❌ No manual findings<br>
+        ❌ Generic recommendations<br>
+        ❌ Missing evidence/PoC<br>
+        ❌ No retest included</p>
+    </div>
+
+    <h2><span class="emoji">🔗</span>Finding-to-Solution Mapping</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Finding Type</th>
+                <th>Technical Detail</th>
+                <th>Our Solution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>SQL Injection</strong></td>
+                <td>DB query manipulation</td>
+                <td>WAF rules, parameterized queries</td>
+            </tr>
+            <tr>
+                <td><strong>XSS</strong></td>
+                <td>Script injection</td>
+                <td>CSP headers, output encoding</td>
+            </tr>
+            <tr>
+                <td><strong>Broken Auth</strong></td>
+                <td>Session/password issues</td>
+                <td>MFA, SSO, session management</td>
+            </tr>
+            <tr>
+                <td><strong>API Abuse</strong></td>
+                <td>Rate limiting, BOLA</td>
+                <td>API Gateway, throttling</td>
+            </tr>
+            <tr>
+                <td><strong>Misconfig</strong></td>
+                <td>Default settings, exposure</td>
+                <td>CSPM, hardening guides</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2><span class="emoji">📋</span>Scoping Checklist</h2>
+    <ul>
+        <li>☐ Number of applications/APIs/IPs</li>
+        <li>☐ Authentication requirements</li>
+        <li>☐ Testing window constraints</li>
+        <li>☐ Production vs staging</li>
+        <li>☐ Data sensitivity levels</li>
+        <li>☐ Compliance requirements</li>
+        <li>☐ Previous findings to verify</li>
+    </ul>
+
+    <h2><span class="emoji">🚀</span>Advanced Topics</h2>
+    
+    <h3>Business Logic Examples</h3>
+    <ul>
+        <li>Price manipulation (negative quantities)</li>
+        <li>Workflow bypass (skip payment)</li>
+        <li>Race conditions (double-spend)</li>
+        <li>Authorization flaws (IDOR)<sup>[17,18]</sup></li>
+    </ul>
+
+    <h3>Purple Teaming Value</h3>
+    <ul>
+        <li>30-40% detection improvement<sup>[19]</sup></li>
+        <li>Real-time blue/red collaboration</li>
+        <li>150-200% Year 1 ROI<sup>[19]</sup></li>
+        <li>MITRE ATT&CK aligned</li>
+    </ul>
+
+    <h3>Certifications That Matter</h3>
+    <ul>
+        <li><strong>OSCP</strong>: Gold standard, hands-on<sup>[20]</sup></li>
+        <li><strong>GWAPT</strong>: Web app specialist</li>
+        <li><strong>GPEN</strong>: Network focus</li>
+        <li><strong>CEH</strong>: Entry level, DoD approved</li>
+    </ul>
+
+    <h2><span class="emoji">💡</span>Technical Differentiators</h2>
+    <ol>
+        <li>Manual validation beyond scanning</li>
+        <li>Business logic focus</li>
+        <li>Chained exploit demonstration</li>
+        <li>Platform-specific expertise</li>
+        <li>Remediation verification included</li>
+    </ol>
+
+    <h2><span class="emoji">🎪</span>Demo Talking Points</h2>
+    <ul>
+        <li>Show scan vs manual finding comparison</li>
+        <li>Explain false positive reduction</li>
+        <li>Demo exploitation path (safely)</li>
+        <li>Map findings to compliance</li>
+        <li>Calculate specific customer ROI</li>
+    </ul>
+
+    <div class="reference">
+        <h2>References</h2>
+        <ol>
+            <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top Ten Project</a></li>
+            <li><a href="https://build38.com/blog/cybersecurity/2024-mobile-app-security-statistics/" target="_blank">Build38 - Mobile App Security Statistics 2024</a></li>
+            <li><a href="https://salt.security/blog/its-2024-and-the-api-breaches-keep-coming" target="_blank">Salt Security - API Breaches 2024</a></li>
+            <li>Industry analysis of vulnerability scanning vs. penetration testing</li>
+            <li><a href="https://owasp.org/www-project-web-security-testing-guide/" target="_blank">OWASP Web Security Testing Guide</a></li>
+            <li><a href="https://csrc.nist.gov/pubs/sp/800/115/final" target="_blank">NIST SP 800-115</a></li>
+            <li><a href="https://blog.rsisecurity.com/nists-penetration-testing-recommendations-explained/" target="_blank">RSI Security - NIST Penetration Testing</a></li>
+            <li><a href="http://www.pentest-standard.org/index.php/Main_Page" target="_blank">Penetration Testing Execution Standard</a></li>
+            <li><a href="https://www.mcafee.com/learn/ios-vs-android-security/" target="_blank">McAfee - iOS vs Android Security</a></li>
+            <li><a href="https://promon.io/security-news/android-vs-ios-security" target="_blank">Promon - Android vs iOS Security</a></li>
+            <li><a href="https://owasp.org/API-Security/editions/2023/en/0x11-t10/" target="_blank">OWASP API Security Top 10 2023</a></li>
+            <li><a href="https://salt.security/blog/a-salt-security-perspective-on-the-2024-gartner-r-market-guide-for-api-protection" target="_blank">Salt Security - Gartner Market Guide</a></li>
+            <li><a href="https://www.testdevlab.com/blog/white-box-vs-black-box-vs-gray-box-testing" target="_blank">TestDevLab - Box Testing Types</a></li>
+            <li><a href="https://www.getastra.com/blog/security-audit/penetration-testing-statistics/" target="_blank">Astra Security - Penetration Testing Statistics</a></li>
+            <li><a href="https://www.marketsandmarkets.com/Market-Reports/penetration-testing-as-a-service-market-36245315.html" target="_blank">Markets and Markets - PTaaS Market</a></li>
+            <li><a href="https://www.breachlock.com/resources/reports/the-cisos-guide-to-penetration-testing-as-a-service-ptaas/" target="_blank">BreachLock - CISO's Guide to PTaaS</a></li>
+            <li><a href="https://qwiet.ai/the-web-security-testing-guide-best-practices-for-business-logic-testing/" target="_blank">Qwiet AI - Business Logic Testing</a></li>
+            <li><a href="https://owasp.org/www-community/vulnerabilities/Business_logic_vulnerability" target="_blank">OWASP - Business Logic Vulnerability</a></li>
+            <li>Industry reports on purple teaming effectiveness</li>
+            <li>Offensive Security certification requirements</li>
+        </ol>
+    </div>
+</body>
+</html>

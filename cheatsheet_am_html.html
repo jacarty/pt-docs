@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Manager - Penetration Testing Quick Reference</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .reference {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .reference h2 {
+            color: #666;
+        }
+        sup {
+            font-size: 0.8em;
+            color: #3498db;
+        }
+        .objection {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+        }
+        @media print {
+            body {
+                padding: 20px;
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            a {
+                color: #000;
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Account Manager - Penetration Testing Quick Reference</h1>
+    
+    <h2><span class="emoji">🎯</span>Key Market Stats to Remember</h2>
+    <ul>
+        <li><strong>Market Size</strong>: £1.8-2.0B UK market, growing 15.8% annually<sup>[1]</sup></li>
+        <li><strong>Breach Impact</strong>: £4.53M average UK breach cost<sup>[2]</sup></li>
+        <li><strong>Hit Rate</strong>: 74% of large UK businesses breached in 2024<sup>[2]</sup></li>
+        <li><strong>ROI</strong>: £3,000-£50,000 investment prevents £4.53M breach<sup>[3,4]</sup></li>
+        <li><strong>Time to Exploit</strong>: 5 days (vs 63 days historically)<sup>[5]</sup></li>
+    </ul>
+
+    <h2><span class="emoji">👥</span>Buyer Quick Guide</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Buyer</th>
+                <th>Hot Button</th>
+                <th>Magic Words</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>CISO</strong></td>
+                <td>Board reporting, risk visibility</td>
+                <td>"Governance-ready", "risk quantification", "board metrics"</td>
+            </tr>
+            <tr>
+                <td><strong>Compliance</strong></td>
+                <td>Audit readiness, penalties</td>
+                <td>"Audit evidence", "compliance insurance", "framework mapping"</td>
+            </tr>
+            <tr>
+                <td><strong>IT Director</strong></td>
+                <td>Not breaking things</td>
+                <td>"Non-disruptive", "remediation roadmap", "prioritized fixes"</td>
+            </tr>
+            <tr>
+                <td><strong>CFO</strong></td>
+                <td>Money talks</td>
+                <td>"Avoided losses", "breach prevention ROI", "insurance savings"</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2><span class="emoji">💬</span>Discovery Power Questions</h2>
+    <ol>
+        <li>"What would a breach cost your business in downtime and reputation?"</li>
+        <li>"Which compliance frameworks are you subject to?" (PCI, HIPAA, GDPR)</li>
+        <li>"When's your next audit/insurance renewal?"</li>
+        <li>"How do you currently demonstrate security to customers?"</li>
+        <li>"What's your biggest security worry keeping you up at night?"</li>
+    </ol>
+
+    <h2><span class="emoji">🚫</span>Objection Busters</h2>
+    
+    <div class="objection">
+        <strong>"Too expensive"</strong><br>
+        → "At £4.53M average breach cost, even 10% risk justifies £50K investment"
+    </div>
+    
+    <div class="objection">
+        <strong>"We scan already"</strong><br>
+        → "Scanning finds 100+ issues, testing shows which 10-15 actually matter"
+    </div>
+    
+    <div class="objection">
+        <strong>"Bad experience before"</strong><br>
+        → "Let's do a pilot on your highest-risk app to prove our approach"
+    </div>
+    
+    <div class="objection">
+        <strong>"Too disruptive"</strong><br>
+        → "95% of tests have zero impact vs 23 days average breach downtime"
+    </div>
+    
+    <div class="objection">
+        <strong>"Not a priority"</strong><br>
+        → "Your competitors are testing. When customers ask about security, what will you say?"
+    </div>
+
+    <h2><span class="emoji">📊</span>Compliance Drivers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Industry</th>
+                <th>Key Regulation</th>
+                <th>Testing Requirement</th>
+                <th>Penalty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Financial</strong></td>
+                <td>PCI DSS</td>
+                <td>Annual mandatory<sup>[6,7]</sup></td>
+                <td>Processing suspension</td>
+            </tr>
+            <tr>
+                <td><strong>Healthcare</strong></td>
+                <td>HIPAA</td>
+                <td>Proposed mandatory 2025<sup>[8]</sup></td>
+                <td>£2.2M average fine</td>
+            </tr>
+            <tr>
+                <td><strong>Any EU Data</strong></td>
+                <td>GDPR</td>
+                <td>"Regular testing"<sup>[9]</sup></td>
+                <td>4% global turnover</td>
+            </tr>
+            <tr>
+                <td><strong>B2B/Enterprise</strong></td>
+                <td>SOC 2</td>
+                <td>Expected by auditors<sup>[10]</sup></td>
+                <td>Lost deals</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2><span class="emoji">💰</span>ROI Quick Math</h2>
+    <pre><code>Breach Cost × Probability = Risk
+£4.53M × 43% = £1.95M annual risk<sup>[2]</sup>
+£50K test = 3,900% ROI<sup>[3]</sup></code></pre>
+
+    <h2><span class="emoji">🎪</span>Testing Types (Simple Explanations)</h2>
+    <p><strong>Black Box</strong> (£10-50K): "Like hiring a burglar to test your locks"<sup>[11]</sup><br>
+    <strong>Gray Box</strong> (Variable): "Burglar with your floor plan" (66% prefer this)<sup>[12]</sup><br>
+    <strong>White Box</strong> (£500-2K/scan): "Security guard checking every door"<sup>[11]</sup></p>
+
+    <h2><span class="emoji">⏰</span>Typical Timeline</h2>
+    <ul>
+        <li><strong>Scoping</strong>: 1-2 weeks</li>
+        <li><strong>Testing</strong>: 1-2 weeks</li>
+        <li><strong>Report</strong>: 1 week</li>
+        <li><strong>Your Time</strong>: <4 hours total</li>
+    </ul>
+
+    <h2><span class="emoji">🏆</span>Quality Indicators (Good vs Bad)</h2>
+    <p>✅ <strong>Good</strong>: Business impact focus, manual validation, clear fixes<sup>[13]</sup><br>
+    ❌ <strong>Bad</strong>: Scanner dump, tech jargon, no remediation help<sup>[13]</sup></p>
+
+    <h2><span class="emoji">🔗</span>Connect to Our Solutions</h2>
+    <ul>
+        <li>Web app vulnerabilities → WAF/RASP</li>
+        <li>Authentication issues → IAM/MFA</li>
+        <li>API problems → API Gateway</li>
+        <li>Network risks → Zero Trust/Segmentation</li>
+    </ul>
+
+    <h2><span class="emoji">📈</span>Close Accelerators</h2>
+    <ol>
+        <li>Upcoming audit deadline</li>
+        <li>Recent competitor breach</li>
+        <li>Insurance renewal</li>
+        <li>New compliance requirement</li>
+        <li>M&A due diligence</li>
+    </ol>
+
+    <h2><span class="emoji">🎁</span>Quick Wins</h2>
+    <ul>
+        <li>Offer compliance mapping for their framework</li>
+        <li>Share breach statistics for their industry</li>
+        <li>Calculate their specific ROI</li>
+        <li>Suggest starting with highest-risk asset</li>
+        <li>Connect them with similar success story</li>
+    </ul>
+
+    <div class="reference">
+        <h2>References</h2>
+        <ol>
+            <li>UK penetration testing market analysis</li>
+            <li>UK Government Cyber Security Breaches Survey 2024</li>
+            <li><a href="https://pentera.io/blog/security-validation-roi-justification/" target="_blank">Pentera - Security Validation ROI</a></li>
+            <li><a href="https://www.cycognito.com/learn/penetration-testing/penetration-testing-costs.php" target="_blank">CyCognito - Penetration Testing Costs</a></li>
+            <li><a href="https://www.coresecurity.com/resources/guides/2024-pen-testing-survey-report" target="_blank">Core Security - 2024 Penetration Testing Survey</a></li>
+            <li><a href="https://sprinto.com/blog/pci-penetration-testing-guide/" target="_blank">Sprinto - PCI Penetration Testing Guide</a></li>
+            <li><a href="https://www.schellman.com/blog/pci-compliance/pci-dss-penetration-testing-faq" target="_blank">Schellman - PCI DSS & Penetration Testing FAQ</a></li>
+            <li><a href="https://www.synack.com/blog/newly-proposed-hipaa-rules-to-include-pentesting/" target="_blank">Synack - HIPAA Rules to Include Pentesting</a></li>
+            <li><a href="https://www.astroinfosec.com/solutions/gdpr-penetration-testing" target="_blank">Astro InfoSec - GDPR Penetration Testing</a></li>
+            <li><a href="https://www.breachlock.com/compliance/soc2-penetration-testing/" target="_blank">BreachLock - SOC 2 Penetration Testing</a></li>
+            <li>Industry pricing surveys and approach comparisons</li>
+            <li><a href="https://www.testdevlab.com/blog/white-box-vs-black-box-vs-gray-box-testing" target="_blank">TestDevLab - Box Testing Types</a></li>
+            <li>Industry best practices for penetration testing quality</li>
+        </ol>
+    </div>
+</body>
+</html>
